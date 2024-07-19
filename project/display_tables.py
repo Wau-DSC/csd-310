@@ -25,7 +25,7 @@ def getPrimaryContactByClient(cursor,id):
   return getFirstContactByClientId(cursor,id) #Assume first contact is primary if not specified
 
 def getFirstContactByClientId(cursor,id):
-  cursor.execute("SELECT contact_id FROM Contact WHERE client_id="+str(id))
+  cursor.execute("SELECT contact_id FROM Contact WHERE client_id="+str(id)+" ORDER BY contact_id")
   for x in cursor.fetchall():
     return x[0]
 
